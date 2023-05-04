@@ -1,15 +1,31 @@
-import { React } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-
-import { sideBarState } from "./utils/sideBarSlice";
+import { React, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { VIDEO_SEARCH_API } from "../utils/constants";
+import { sideBarState } from "../utils/sideBarSlice";
 const Header = () => {
-
   const dispatch = useDispatch();
+
+  const [searchVideo, setsearchVideo] = useState([]);
+  const [suggestions, setsuggestions] = useState([]);
+
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  // console.log(searchVideo);
 
   const handleSidebar = () => {
     dispatch(sideBarState());
-  }
+  };
 
+  useEffect(() => {
+    console.log("api call made");
+    searchApiCall();
+  }, [searchVideo]);
+
+  const searchApiCall = async () => {
+    const data = await fetch(VIDEO_SEARCH_API + searchVideo);
+    const json = await data.json();
+    console.log(json[1]);
+    setsuggestions(json[1]);
+  };
 
   return (
     <div className="grid grid-flow-col md:items-center shadow-lg">
@@ -26,21 +42,36 @@ const Header = () => {
           className="h-20 w-40"
         />
       </div>
-
+      {/* search  */}
       <div className="flex">
         <div>
           <input
             type="text"
             className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full"
+            value={searchVideo}
+            onChange={(e) => setsearchVideo(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
           />
-        </div>
 
-        <div>
           <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
             🔍
           </button>
         </div>
+        {showSuggestions && (
+          <div className="absolute mt-11
+   bg-white py-2 px-2 w-[37rem] shadow-lg rounded-lg border border-gray-100">
+            <ul>
+              {suggestions.map((s) => (
+                <li key={s} className="py-2 px-3 shadow-sm hover:bg-gray-100">
+                  🔍 {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
+
       <div>
         <img
           src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553__340.png"

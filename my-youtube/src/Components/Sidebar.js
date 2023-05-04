@@ -5,8 +5,8 @@ const Sidebar = () => {
   const open = useSelector((store) => store.sideBarSlice.open)
 
   if (!open) return null;
-  
-  return <div className="p-5 shadow-xl w-[150rem] h-screen text-center text-xl mt-1">
+
+  return <div className="pl-20 shadow-xl w-[210rem] text-lg mt-10">
     <ul>
       <li>
         <h1>Home</h1>
