@@ -1,15 +1,14 @@
-import {React} from "react";
+import { React } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 
 import { sideBarState } from "./utils/sideBarSlice";
 const Header = () => {
 
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
-const handleSidebar=()=>
-{
-dispatch(sideBarState());
-}
+  const handleSidebar = () => {
+    dispatch(sideBarState());
+  }
 
 
   return (
