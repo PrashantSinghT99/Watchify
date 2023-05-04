@@ -1,9 +1,20 @@
-import React from "react";
+import {React} from "react";
+import { useDispatch, useSelector } from 'react-redux'
 
+import { sideBarState } from "./utils/sideBarSlice";
 const Header = () => {
+
+  const dispatch=useDispatch();
+
+const handleSidebar=()=>
+{
+dispatch(sideBarState());
+}
+
+
   return (
-    <div className= "grid grid-flow-col">
-      <div>
+    <div className="grid grid-flow-col md:items-center shadow-lg">
+      <div className="pl-4" onClick={handleSidebar}>
         <img
           src="https://banner2.cleanpng.com/20180622/fh/kisspng-hamburger-button-menu-computer-icons-united-states-menue-5b2cdfed090519.945165391529667565037.jpg"
           className="h-8 w-8"
@@ -18,11 +29,25 @@ const Header = () => {
       </div>
 
       <div className="flex">
-        <div> <input type="text" /></div>
-      <button>🔎</button>
-     </div>
+        <div>
+          <input
+            type="text"
+            className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full"
+          />
+        </div>
+
+        <div>
+          <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
+            🔍
+          </button>
+        </div>
+      </div>
       <div>
-        <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553__340.png" alt="userLogo" className="h-10 w-10" />
+        <img
+          src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553__340.png"
+          alt="userLogo"
+          className="h-10 w-10"
+        />
       </div>
     </div>
   );
