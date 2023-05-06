@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chat from './Chat'
 import { useDispatch, useSelector } from 'react-redux'
 import { sendChat } from "../utils/liveChatSlice";
-
+import { generateRandomName } from '../utils/constants'
+import { randomMessageGenerator } from '../utils/constants'
+import { getRandomEmoji } from '../utils/constants'
 
 const Livechats = () => {
   const [enteredChat, setEnteredChat] = useState("");
+  const displaychats = useSelector((store) => store.liveChatSlice.chatsArray);
 
 
-const displaychats=useSelector((store)=>store.liveChatSlice.chatsArray);
+  useEffect(() => {
+    const time = setInterval(() => {
+      dispatch(
+        sendChat({
+          name: generateRandomName(),
+          message: randomMessageGenerator() + getRandomEmoji(),
+        })
+      )
+    }, 1500);
 
-// console.log("this is display chats",displaychats)
+    return () => clearTimeout(time);
+  }, [])
+
+  // console.log("this is display chats",displaychats)
 
   const dispatch = useDispatch();
 
@@ -31,14 +45,14 @@ const displaychats=useSelector((store)=>store.liveChatSlice.chatsArray);
   return (
 
     <>
-      <div className="h-[650px] ml-4 w-9/12">
+      <div className="h-[650px] ml-4 w-9/12 overflow-hidden flex flex-col-reverse">
         {
-          displaychats.map((chat,index)=>
+          displaychats.map((chat, index) =>
           (
-            <Chat key={index} name={chat.name} message={chat.message}/>
+            <Chat key={index} name={chat.name} message={chat.message} />
           ))
         }
-       
+
       </div>
       <form onSubmit={addComment}>
         <input type="text"

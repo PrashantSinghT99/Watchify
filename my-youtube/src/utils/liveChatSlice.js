@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { MAX_LIVECHAT_COUNT } from '../utils/constants'
 const liveChatSlice = createSlice({
   name: "chat",
   initialState: {
@@ -7,7 +7,8 @@ const liveChatSlice = createSlice({
   },
   reducers: {
     sendChat: (state, actions) => {
-      state.chatsArray.push(actions.payload);
+      state.chatsArray.splice(MAX_LIVECHAT_COUNT, 1);
+      state.chatsArray.unshift(actions.payload);
     },
   },
 });
