@@ -1,31 +1,52 @@
 import { React, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { VIDEO_SEARCH_API } from "../utils/constants";
 import { sideBarState } from "../utils/sideBarSlice";
+import {searchCached}  from "../utils/searchCachingSlice";
+
 const Header = () => {
   const dispatch = useDispatch();
 
   const [searchVideo, setsearchVideo] = useState([]);
   const [suggestions, setsuggestions] = useState([]);
-
   const [showSuggestions, setShowSuggestions] = useState(false);
-  // console.log(searchVideo);
+
+  const searchCache = useSelector((store) => store.searchCachingSlice);
 
   const handleSidebar = () => {
     dispatch(sideBarState());
   };
 
   useEffect(() => {
-    console.log("api call made");
-    searchApiCall();
+
+    const timer = setTimeout(() => {
+
+      if (searchCache[searchVideo]) {
+        setsuggestions(searchCache[searchVideo])
+      }
+      else {
+        searchApiCall();
+      }
+    }, 500)
+
+    return () => clearTimeout(timer)
+
   }, [searchVideo]);
 
   const searchApiCall = async () => {
+
+    console.log("api call")
     const data = await fetch(VIDEO_SEARCH_API + searchVideo);
     const json = await data.json();
     // console.log(json[1]);
-
     setsuggestions(json[1]);
+    //if search not in cache then dispatch and store in cache
+
+    dispatch(
+      searchCached({
+        [searchVideo]: json[1],
+      })
+    );
   };
 
   return (
