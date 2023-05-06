@@ -23,7 +23,8 @@ const Header = () => {
   const searchApiCall = async () => {
     const data = await fetch(VIDEO_SEARCH_API + searchVideo);
     const json = await data.json();
-    console.log(json[1]);
+    // console.log(json[1]);
+
     setsuggestions(json[1]);
   };
 
@@ -74,7 +75,7 @@ const Header = () => {
 
       <div>
         <img
-          src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553__340.png"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLU5_eUUGBfxfxRd4IquPiEwLbt4E_6RYMw&usqp=CAU"
           alt="userLogo"
           className="h-10 w-10"
         />

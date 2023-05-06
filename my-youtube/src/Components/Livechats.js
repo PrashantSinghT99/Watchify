@@ -19,7 +19,7 @@ const Livechats = () => {
           message: randomMessageGenerator() + getRandomEmoji(),
         })
       )
-    }, 1500);
+    }, 1000);
 
     return () => clearTimeout(time);
   }, [])

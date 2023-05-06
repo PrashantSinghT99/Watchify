@@ -34,7 +34,7 @@ const WatchPage = () => {
           
         </div>
       </div>
-      <div className="w-[1100px] h-[500px] ml-6">
+      <div className="w-[1100px] h-[1000px] ml-6">
         <CommentList />
       </div>
     </div>
