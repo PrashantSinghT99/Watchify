@@ -2,15 +2,14 @@ import React from "react";
 import Comment from "./Comment.js";
 import { commentsData } from "../utils/constants";
 
-const CommentList = ({ commentsData }) => {
+const CommentDataList = ({ commentsData }) => {
   return (
-    <>
-      <h1 className="text-2xl font-bold mt-2 ml-2">Comments : </h1>
-      {commentsData.map((comment) => (
-        <div>
+    <> 
+      {commentsData.map((comment,index) => (
+        <div key={index}>
           <Comment comment={comment} />
           <div className="pl-5 border border-l-black ml-5">
-            <CommentList commentsData={comment.replies} />
+            <CommentDataList commentsData={comment.replies} />
           </div>
         </div>
       ))}
@@ -18,10 +17,11 @@ const CommentList = ({ commentsData }) => {
   );
 };
 
-const commentDataPass = () => {
+const CommentList = () => {
   return (
     <>
-      <CommentList commentsData={commentsData} />
+     <h1 className="text-2xl font-bold mt-2 ml-2">Comments : </h1>
+      <CommentDataList commentsData={commentsData} />
     </>
   );
 };

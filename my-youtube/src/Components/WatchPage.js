@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import Livechats from './Livechats'
+import Livechats from "./Livechats";
 import CommentList from "./CommentList";
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { sideBarState } from "../utils/sideBarSlice";
 const WatchPage = () => {
   const [videoFromId] = useSearchParams();
 
   const dispatch = useDispatch();
 
-  useEffect(()=>
-  {
+  useEffect(() => {
     dispatch(sideBarState());
-  },[])
+  }, []);
 
   return (
     <div className="flex flex-col w-full">
@@ -28,11 +27,14 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="h-[650px] w-96 border border-black">
-          <Livechats />
+        <div className="flex flex-col">
+          <div className="h-[650px] ml-4 w-96 border border-black">
+            <Livechats />
+          </div>
+          
         </div>
       </div>
-      <div className="w-[1100px] h-[500px] border border-black ml-6">
+      <div className="w-[1100px] h-[500px] ml-6">
         <CommentList />
       </div>
     </div>
