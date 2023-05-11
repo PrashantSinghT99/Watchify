@@ -45,7 +45,7 @@ const Livechats = () => {
   return (
 
     <>
-      <div className="h-[650px] ml-4 w-9/12 overflow-hidden flex flex-col-reverse">
+      <div className="h-[650px]  ml-4 w-9/12 md:w-[250px] sm:h-[300px] sm:w-[250px] xsm:h-[300px] xsm:w-[200px] mob:h-[300px] mob:w-[200px]  overflow-hidden flex flex-col-reverse">
         {
           displaychats.map((chat, index) =>
           (
@@ -56,12 +56,12 @@ const Livechats = () => {
       </div>
       <form onSubmit={addComment}>
         <input type="text"
-          className="text-lg mt-4 w-72 p-4 rounded-lg shadow-lg border border-gray-400"
+          className="text-lg mt-4 w-72  mob:w-[100px] p-4 rounded-lg shadow-lg border border-gray-400"
           value={enteredChat}
           onChange={setLiveMessage}
         />
 
-        <button className="h-14 rounded-lg w-20 p-2 mt-4 ml-2 bg-green-300" >Send</button>
+        <button className="h-14 rounded-lg w-20 mob:w-12 p-2 mt-4 ml-2 bg-green-300" >Send</button>
       </form>
 
     </>

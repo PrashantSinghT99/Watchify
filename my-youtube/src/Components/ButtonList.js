@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button'
 const ButtonList = () => {
   return (
-    <div className="flex pt-2">
+    <div className="flex flex-wrap pt-2">
     <Button name="All" />
     <Button name="Gaming" />
     <Button name="Songs" />

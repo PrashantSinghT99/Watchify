@@ -50,8 +50,8 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col md:items-center shadow-lg">
-      <div className="pl-4" onClick={handleSidebar}>
+    <div className="grid grid-flow-col md:items-center shadow-lg items-center">
+      <div className="pl-4 mob:pl-1" onClick={handleSidebar}>
         <img
           src="https://banner2.cleanpng.com/20180622/fh/kisspng-hamburger-button-menu-computer-icons-united-states-menue-5b2cdfed090519.945165391529667565037.jpg"
           className="h-8 w-8"
@@ -69,7 +69,7 @@ const Header = () => {
         <div>
           <input
             type="text"
-            className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full"
+            className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full md:w-[400px] sm:w-[200px] xsm:w-[200px] mob:w-[200px]"
             value={searchVideo}
             onChange={(e) => setsearchVideo(e.target.value)}
             onFocus={() => setShowSuggestions(true)}

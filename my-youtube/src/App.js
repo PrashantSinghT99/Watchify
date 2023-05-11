@@ -8,6 +8,7 @@ import WatchPage from "./Components/WatchPage";
 import MainContainer from "./Components/MainContainer";
 import Error from "./Components/Error";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -15,13 +16,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainContainer/>,
+        element: <MainContainer />,
         errorElement: <Error />,
       },
       {
         path: "/watch",
-        element: <WatchPage/>,
-        errorElement: <Error/>,
+        element: <WatchPage />,
+        errorElement: <Error />,
       },
     ],
   },
@@ -31,7 +32,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <Header />
+        <Header/>
         <RouterProvider router={router} />
       </Provider>
     </>

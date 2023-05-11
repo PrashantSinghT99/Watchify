@@ -10,7 +10,7 @@ export const Videocard = ({video}) => {
     <ul>
         <li className='font-bold py-2'>{title}</li>
         <li>{channelTitle}</li>
-        <li>{statistics.viewCount} views</li>
+        <li>{Math.trunc(statistics.viewCount)} views</li>
     </ul>
     </div>
   )
