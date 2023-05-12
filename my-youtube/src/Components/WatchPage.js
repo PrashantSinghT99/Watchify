@@ -18,7 +18,7 @@ const WatchPage = () => {
       <div className="flex">
         <div className="ml-6 md">
           <iframe
-            className="w-[1100px] h-[700px] xl:w-[900px]  lg:w-[700px] md:w-[500px] sm:w-[370px] sm:h-[350px] xsm:w-[300px] xsm:h-[400px] mob:w-[225px] mob:h-[350px]"
+            className="w-[1100px] h-[700px] xl:w-[900px]  lg:w-[700px] md:w-[500px] sm:w-[370px] sm:h-[350px] xsm:w-[300px] xsm:h-[400px] mob:w-[175px] mob:h-[350px]"
             src={"https://www.youtube.com/embed/" + videoFromId.get("v")}
             title="YouTube video player"
             frameBorder="0"
@@ -27,7 +27,7 @@ const WatchPage = () => {
           ></iframe>
         </div>
         <div className="flex flex-col">
-          <div className="h-[650px] w-96 md:w-[250px] sm:h-[300px] sm:w-[225px] xsm:h-[450px] xsm:w-[200px]  mob:h-[300px] mob:w-[150px]  ml-4  border border-black">
+          <div className="h-[650px] w-96 md:w-[250px] sm:h-[300px] sm:w-[225px] xsm:h-[450px] xsm:w-[200px]  mob:h-[300px] mob:w-[160px]  ml-4  border border-black">
             <Livechats />
           </div>
 

@@ -45,7 +45,7 @@ const Livechats = () => {
   return (
 
     <>
-      <div className="h-[650px]  ml-4 mob:ml-1 w-9/12 md:w-[250px] sm:h-[300px] sm:w-[250px] xsm:h-[300px] xsm:w-[200px] mob:h-[300px] mob:w-[200px]   overflow-hidden flex flex-col-reverse">
+      <div className="h-[650px]  ml-4 mob:ml-0 w-9/12 md:w-[250px] sm:h-[300px] sm:w-[250px] xsm:h-[300px] xsm:w-[200px] mob:h-[300px] mob:w-[200px]   overflow-hidden flex flex-col-reverse">
         {
           displaychats.map((chat, index) =>
           (
