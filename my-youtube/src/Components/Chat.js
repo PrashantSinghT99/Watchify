@@ -9,7 +9,7 @@ const Chat = ({name,message}) => {
         alt="livechatPic"
       />
       <span className="font-bold ml-1">{name}</span>
-      <span className="ml-4">{message}</span>
+      <span className="ml-4  xsm:ml-1">{message}</span>
     </div>
   );
 };
