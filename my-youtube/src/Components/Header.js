@@ -69,14 +69,14 @@ const Header = () => {
         <div>
           <input
             type="text"
-            className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full md:w-[400px] sm:w-[200px] xsm:w-[200px] mob:w-[200px]"
+            className="w-[600px] px-4 py-2 border border-gray-600 rounded-l-full md:w-[400px] sm:w-[150px] xsm:w-[150px] mob:w-[150px]"
             value={searchVideo}
             onChange={(e) => setsearchVideo(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
           />
 
-          <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
+          <button className="border border-gray-400 px-5 py-2 rounded-r-full mob:px-1 bg-gray-100">
             🔍
           </button>
         </div>
