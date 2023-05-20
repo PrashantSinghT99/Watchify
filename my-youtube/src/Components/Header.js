@@ -2,25 +2,20 @@ import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { VIDEO_SEARCH_API } from "../utils/constants";
 import { sideBarState } from "../utils/sideBarSlice";
-import {searchCached}  from "../utils/searchCachingSlice";
+import { searchCached } from "../utils/searchCachingSlice";
 
 const Header = () => {
-  const dispatch = useDispatch();
-
   const [searchVideo, setsearchVideo] = useState([]);
   const [suggestions, setsuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-
   const searchCache = useSelector((store) => store.searchCachingSlice);
-
+  const dispatch = useDispatch();
   const handleSidebar = () => {
     dispatch(sideBarState());
   };
 
   useEffect(() => {
-
     const timer = setTimeout(() => {
-
       if (searchCache[searchVideo]) {
         setsuggestions(searchCache[searchVideo])
       }
@@ -28,20 +23,16 @@ const Header = () => {
         searchApiCall();
       }
     }, 500)
-
+    
     return () => clearTimeout(timer)
-
   }, [searchVideo]);
 
   const searchApiCall = async () => {
-
-    console.log("api call")
     const data = await fetch(VIDEO_SEARCH_API + searchVideo);
     const json = await data.json();
     // console.log(json[1]);
     setsuggestions(json[1]);
     //if search not in cache then dispatch and store in cache
-
     dispatch(
       searchCached({
         [searchVideo]: json[1],
@@ -75,14 +66,13 @@ const Header = () => {
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
           />
-
           <button className="border border-gray-400 px-5 py-2 rounded-r-full mob:px-1 bg-gray-100">
             🔍
           </button>
         </div>
         {showSuggestions && (
           <div className="absolute mt-11
-   bg-white py-2 px-2 w-[37rem] shadow-lg rounded-lg border border-gray-100">
+   bg-white py-2 px-2 w-[600px] md:w-[400px] sm:w-[150px] xsm:w-[150px] mob:w-[150px] shadow-lg rounded-lg border border-gray-100">
             <ul>
               {suggestions.map((s) => (
                 <li key={s} className="py-2 px-3 shadow-sm hover:bg-gray-100">
