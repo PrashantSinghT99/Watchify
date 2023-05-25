@@ -7,6 +7,7 @@ import {useRandomId} from '../utils/useRandomId.js'
 const CommentList = () => {
 
   const [CommentBtnState, setCommentBtnState] = useState("");
+ 
   const commentsData = useSelector((store) => store.commentsSlice.commentsData)
   const dispatch = useDispatch();
   const randomId=useRandomId();
@@ -50,16 +51,10 @@ setCommentBtnState("")
           <button
             onClick={submitComment}
             className={`md:text-sm md:px-4 md:py-2 px-2 py-1 text-[0.7rem] text-2xl font-semibold 
-          rounded-full${CommentBtnState ? "cursor-pointer bg-blue-600 text-white" : "bg-stone-100 text-stone-500 dark:text-stone-500  cursor-not-allowed"}`}
+          rounded-full ${CommentBtnState ? "cursor-pointer bg-blue-600 text-white" : "bg-stone-100 text-stone-500 dark:text-stone-500  cursor-not-allowed"}`}
           >
             Comment
           </button>
-          {/* <button
-          className="md:text-sm md:px-4 md:py-2 px-2 py-1 text-[0.7rem] text-2xl font-semibold 
-          rounded-full bg-blue-600 text-white"
-        >
-          Comment
-        </button> */}
         </div>
       </div>
       <CommentDataList commentsData={commentsData} />
