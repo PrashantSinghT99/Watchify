@@ -12,7 +12,8 @@ const Comment = ({ comment }) => {
         <div className="flex flex-col ml-2">
           <div>
             <span className="font-bold">{comment.name}</span> </div>
-          <div> {comment.text}</div>
+          <div> {comment.text}</div>  
+        <div><button className="mb-2 mt-1 text-sm">Reply</button></div>  
         </div>
       </div>
     </>

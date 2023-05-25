@@ -10,36 +10,43 @@ export const VIDEO_SEARCH_API =
 
 export const commentsData = [
   {
+    id:1,
     name: "Prashant Singh",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
   },
   {
+    id:2,
     name: "Prashant Singh",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [
       {
+        id:3,
         name: "Prashant Singh",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [],
       },
       {
+        id:4,
         name: "Prashant Singh",
         text: "Lorem ipsum dolor sit amet, consectetur adip",
         replies: [
           {
+            id:5,
             name: "Prashant Singh",
             text: "Lorem ipsum dolor sit amet, consectetur adip",
             replies: [
-              {
+              {id:6,
                 name: "Prashant Singh",
                 text: "Lorem ipsum dolor sit amet, consectetur adip",
                 replies: [
                   {
+                    id:7,
                     name: "Prashant Singh",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [
                       {
+                        id:8,
                         name: "Prashant Singh",
                         text: "Lorem ipsum dolor sit amet, consectetur adip",
                         replies: [],
@@ -47,6 +54,7 @@ export const commentsData = [
                     ],
                   },
                   {
+                    id:9,
                     name: "Prashant Singh",
                     text: "Lorem ipsum dolor sit amet, consectetur adip",
                     replies: [],
@@ -63,22 +71,7 @@ export const commentsData = [
     name: "Prashant Singh",
     text: "Lorem ipsum dolor sit amet, consectetur adip",
     replies: [],
-  },
-  {
-    name: "Prashant Singh",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Prashant Singh",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Prashant Singh",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
+  }
 ];
 
 
