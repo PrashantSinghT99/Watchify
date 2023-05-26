@@ -5,7 +5,7 @@ import { sendChat } from "../utils/liveChatSlice";
 import { generateRandomName } from '../utils/constants'
 import { randomMessageGenerator } from '../utils/constants'
 import { getRandomEmoji } from '../utils/constants'
-
+import { AiOutlineSend } from 'react-icons/ai'
 const Livechats = () => {
   const [enteredChat, setEnteredChat] = useState("");
   const displaychats = useSelector((store) => store.liveChatSlice.chatsArray);
@@ -61,7 +61,7 @@ const Livechats = () => {
           onChange={setLiveMessage}
         />
 
-        <button className="h-14 rounded-lg w-20  mob:w-12 p-2 mt-4 ml-2 bg-green-300" >Send</button>
+        <button className="h-14 rounded-lg w-20  mob:w-12 p-2 mt-4 ml-2 " ><AiOutlineSend className='text-2xl text-blue-600 cursor-pointer' ></AiOutlineSend></button>
       </form>
 
     </>

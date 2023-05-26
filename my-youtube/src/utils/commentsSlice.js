@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import { commentsData } from "./constants";
 
 const commentsSlice = createSlice({
@@ -7,9 +7,23 @@ const commentsSlice = createSlice({
         commentsData: commentsData
     },
     reducers: {
-
         addComment: (state, action) => {
             state.commentsData.unshift(action.payload)
+        },
+        addReplyAction: (state, action) => {
+            const { parentid, reply } = action.payload
+            function replyRecursiveFunc(data) {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].id === parentid) {
+                        data[i].replies.push(reply)
+                    }
+                    else if (data[i].replies.length > 0) {
+                        replyRecursiveFunc(data[i].replies)
+                    }
+                }
+                return false;
+            }
+            replyRecursiveFunc(state.commentsData)
         }
 
     }
@@ -18,23 +32,5 @@ const commentsSlice = createSlice({
 })
 
 
-export const { addComment } = commentsSlice.actions;
+export const { addComment, addReplyAction } = commentsSlice.actions;
 export default commentsSlice.reducer;
-
-// import { createSlice } from "@reduxjs/toolkit";
-// import { MAX_LIVECHAT_COUNT } from '../utils/constants'
-// const liveChatSlice = createSlice({
-//   name: "chat",
-//   initialState: {
-//     chatsArray: [],
-//   },
-//   reducers: {
-//     sendChat: (state, actions) => {
-//       state.chatsArray.splice(MAX_LIVECHAT_COUNT, 1);
-//       state.chatsArray.unshift(actions.payload);
-//     },
-//   },
-// });
-
-// export const { sendChat } = liveChatSlice.actions;
-// export default liveChatSlice.reducer;
