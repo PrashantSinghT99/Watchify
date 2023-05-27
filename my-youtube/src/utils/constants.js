@@ -4,7 +4,7 @@ export const VIDEO_URL = "https://youtube.googleapis.com/youtube/v3/videos?part=
 
 export const MAX_LIVECHAT_COUNT = 20;
 export const CATEGORY_ID_URL = "https://www.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=IN&key=" + API_KEY
-export const VIDEO_SEARCH_API ="https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+export const VIDEO_SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 const nameList = [
   'Time', 'Past', 'Future', 'Dev',

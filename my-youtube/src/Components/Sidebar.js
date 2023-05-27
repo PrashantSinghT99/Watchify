@@ -18,16 +18,16 @@ const Sidebar = () => {
   // p-5 shadow-lg w-48
   // pl-20 shadow-xl w-[210px] h-full text-lg mt-10
   return (
-    <div className="p-5 shadow-lg w-48 text-black text-center">
+    <div className="p-5 shadow-lg w-48 text-black text-center text-lg">
       <ul>
-        <li><Link to="/"><MdHomeFilled></MdHomeFilled>Home</Link></li>
-        <li><HiMusicNote></HiMusicNote>Music</li>
-        <li><RxVideo></RxVideo>Shorts</li>
-        <li><BsNewspaper></BsNewspaper>News & Politics</li>
-        <li><MdSportsCricket></MdSportsCricket>Sports</li>
-        <li><MdTheaterComedy></MdTheaterComedy>Comedy</li>
-        <li><MdTravelExplore></MdTravelExplore>Travel & Events</li>
-        <li><MdMovie></MdMovie>Movies</li>
+<li><Link className="flex items-center justify-start mt-6 gap-4" to="/"><MdHomeFilled></MdHomeFilled>Home</Link></li> 
+     <li className="flex items-center mt-6 justify-start gap-4"><HiMusicNote></HiMusicNote>Music</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><RxVideo></RxVideo>Shorts</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><BsNewspaper></BsNewspaper>News&Politics</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><MdSportsCricket></MdSportsCricket>Sports</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><MdTheaterComedy></MdTheaterComedy>Comedy</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><MdTravelExplore></MdTravelExplore>Travel&Events</li>
+     <li className="flex items-center mt-6 justify-start gap-4"><MdMovie></MdMovie>Movies</li>                             
       </ul>
     </div>
   );
