@@ -42,6 +42,7 @@ const Header = () => {
 
   return (
     <div className="grid grid-flow-col md:items-center shadow-lg items-center">
+      <div className="flex items-center">
       <div className="pl-4 mob:pl-1" onClick={handleSidebar}>
         <img
           src="https://banner2.cleanpng.com/20180622/fh/kisspng-hamburger-button-menu-computer-icons-united-states-menue-5b2cdfed090519.945165391529667565037.jpg"
@@ -57,6 +58,7 @@ const Header = () => {
           />
         </div>
       </Link>
+      </div>
       {/* search  */}
       <div className="flex">
         <div>

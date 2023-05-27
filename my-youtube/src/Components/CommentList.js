@@ -3,28 +3,31 @@ import Comment from "./Comment.js";
 import image from "../Assests/comment-icon.png";
 import { useDispatch, useSelector } from "react-redux"
 import { addComment } from "../utils/commentsSlice.js";
-import {useRandomId} from '../utils/useRandomId.js'
+import { useRandomId } from '../utils/useRandomId.js'
 const CommentList = () => {
 
   const [CommentBtnState, setCommentBtnState] = useState("");
- 
+
   const commentsData = useSelector((store) => store.commentsSlice.commentsData)
   const dispatch = useDispatch();
-  const randomId=useRandomId();
+  const randomId = useRandomId();
 
   const submitComment = () => {
+    if (CommentBtnState === "") return
+
     dispatch(
       addComment(
         {
-          id:randomId,
+          id: randomId,
           name: "Prashant Singh",
           text: CommentBtnState,
           replies: [],
+          control: true
         }
       )
     )
 
-setCommentBtnState("")
+    setCommentBtnState("")
   }
 
   return (
@@ -32,7 +35,7 @@ setCommentBtnState("")
       <h1 className="text-2xl font-bold mt-2 ml-2">Comments : </h1>
       <div className="flex flex-col mt-4">
         <div className="flex gap-2">
-          <img src={image} alt="usericon" width="40px"/>
+          <img src={image} alt="usericon" width="40px" />
           <input
             type="text"
             value={CommentBtnState}
@@ -46,7 +49,7 @@ setCommentBtnState("")
         </div>
         <div className="ml-[4%] mt-[10px]">
           <button className="md:text-sm md:px-4 md:py-2 px-2 py-1 text-[0.7rem] hover:bg-stone-200 font-semibold text-2xl rounded-full"
-          onClick={()=>setCommentBtnState("")}>
+            onClick={() => setCommentBtnState("")}>
             Cancel
           </button>
           <button

@@ -4,9 +4,17 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addReplyAction } from "../utils/commentsSlice";
 import { useRandomId } from "../utils/useRandomId.js";
+import { deleteAction } from "../utils/commentsSlice";
 const Comment = ({ comment }) => {
   const [replyState, setReplyState] = useState(false);
   const [replyModeComment, setReplyModeComment] = useState("");
+  const {control}=comment
+  // const [control, setcontrol] = useState(comment.control);
+
+  // console.log(control);
+  // const [commentControl,setCommentControl] =useState()
+
+  // setCommentControl
 
   const dispatch = useDispatch();
   const randomId = useRandomId();
@@ -14,7 +22,10 @@ const Comment = ({ comment }) => {
     setReplyState(true);
   };
 
+  // console.log(comment.control);
+
   const addReply = () => {
+    if (replyModeComment === "") return;
     dispatch(
       addReplyAction({
         parentid: comment.id,
@@ -23,11 +34,16 @@ const Comment = ({ comment }) => {
           name: "Prashant Singh",
           text: replyModeComment,
           replies: [],
+          control: true,
         },
       })
     );
     setReplyState(false);
   };
+  const dispatchDelete = () => {
+    dispatch(deleteAction(comment.id));
+  };
+
   return (
     <>
       <div className="flex shadow-lg mt-2 ml-2 flex-col">
@@ -38,14 +54,26 @@ const Comment = ({ comment }) => {
           </div>
           <div> {comment.text}</div>
           {!replyState && (
-            <div>
-              <button
-                className="mb-2 mt-1 px-2 py-1 text-[0.8rem] text-2xl font-semibold 
+            <div className="flex">
+              <div>
+                <button
+                  className="mb-2 mt-1 px-2 py-1 text-[0.8rem] text-2xl font-semibold 
           rounded-full bg-stone-100 text-stone-500"
-                onClick={setreplyState}
-              >
-                Reply
-              </button>
+                  onClick={setreplyState}
+                >
+                  Reply
+                </button>
+              </div>
+              {control&& (
+              <div>
+                <button
+                  className="mb-2 mt-1 px-2 py-1 text-[0.8rem] text-2xl font-semibold 
+          rounded-full bg-stone-100 text-stone-500"
+                  onClick={dispatchDelete}
+                >
+                  Delete
+                </button>
+              </div>)}
             </div>
           )}
         </div>
@@ -61,11 +89,27 @@ const Comment = ({ comment }) => {
                 onChange={(e) => setReplyModeComment(e.target.value)}
               />
             </div>
+
             <div className="ml-[4%] mt-[10px]">
-              <button className="px-2 py-1 text-[0.7rem] hover:bg-stone-200 font-semibold text-2xl rounded-full"
-              onClick={()=>setReplyModeComment("")}>
+              <button
+                className="px-2 py-1 text-[0.7rem] hover:bg-stone-200 font-semibold text-2xl rounded-full"
+                onClick={() => {
+                  setReplyModeComment("")
+                  setReplyState(false)}}
+              >
                 Cancel
               </button>
+              {
+              !replyState&&(
+              <button
+                className="mb-2 mt-1 px-2 py-1 text-[0.8rem] text-2xl font-semibold 
+          rounded-full bg-stone-100 text-stone-500"
+                onClick={dispatchDelete}
+              >
+                Delete
+              </button>)
+              }
+
               <button
                 className={`px-2 py-1 text-[0.7rem] text-2xl font-semibold 
           rounded-full ${

@@ -1,6 +1,6 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { commentsData } from "./constants";
-
+//import { current } from "@reduxjs/toolkit";
 const commentsSlice = createSlice({
     name: "comments",
     initialState: {
@@ -24,6 +24,19 @@ const commentsSlice = createSlice({
                 return false;
             }
             replyRecursiveFunc(state.commentsData)
+        },
+        deleteAction: (state, action) => {
+            function deleteAction(comments){
+                for (let i = 0; i < comments.length; i++){
+                    if(comments[i].id === action.payload){
+                        comments.splice(i, 1)
+                    } else if(comments[i].replies.length > 0){
+                        deleteAction(comments[i].replies)
+                    }
+                }
+                return false
+            }
+            deleteAction(state.commentsData)
         }
 
     }
@@ -32,5 +45,5 @@ const commentsSlice = createSlice({
 })
 
 
-export const { addComment, addReplyAction } = commentsSlice.actions;
+export const { addComment, addReplyAction,deleteAction } = commentsSlice.actions;
 export default commentsSlice.reducer;

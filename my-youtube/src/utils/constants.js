@@ -40,43 +40,51 @@ export const commentsData = [
     name: generateRandomName(),
     text: "Great content, really enjoying the stream!",
     replies: [],
+    control: false
   },
   {
     id: 2,
     name: generateRandomName(),
     text: "Thanks for sharing this information, it's really important",
+    control: false,
     replies: [
       {
         id: 3,
         name: generateRandomName(),
         text: "I'm blown away by how informative this stream is, thank you!",
         replies: [],
+        control: false
       },
       {
         id: 4,
         name: generateRandomName(),
         text: "I can't believe how much I'm learning from this",
+        control: false,
         replies: [
           {
             id: 5,
             name: generateRandomName(),
             text: "I'm really impressed by the quality of this content, thank you",
+            control: false,
             replies: [
               {
                 id: 6,
                 name: generateRandomName(),
                 text: "I'm loving the positive energy of this stream",
+                control: false,
                 replies: [
                   {
                     id: 7,
                     name: generateRandomName(),
                     text: "This is amazing!",
+                    control: false,
                     replies: [
                       {
                         id: 8,
                         name: generateRandomName(),
                         text: "This is exactly the kind of content I was hoping",
                         replies: [],
+                        control: false
                       },
                     ],
                   },
@@ -84,6 +92,7 @@ export const commentsData = [
                     id: 9,
                     name: generateRandomName(),
                     text: "This is amazing!",
+                    control: false,
                     replies: [],
                   },
                 ],
@@ -99,6 +108,7 @@ export const commentsData = [
     name: generateRandomName(),
     text: "This is exactly the kind of content I was hoping",
     replies: [],
+    control: false,
   }
 ];
 

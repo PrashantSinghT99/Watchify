@@ -24,7 +24,7 @@ const WatchPage = () => {
             src={"https://www.youtube.com/embed/" + videoFromId.get("v")}
             title="YouTube video player"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="autoplay;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
         </div>
