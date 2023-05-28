@@ -1,4 +1,4 @@
-export const API_KEY = "AIzaSyC6WbtdkOdvxwjHkVPp0Pv77l4fXhROeBg";
+export const API_KEY = "";
 
 export const VIDEO_URL = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + API_KEY;
 export const MAX_LIVECHAT_COUNT = 20;
