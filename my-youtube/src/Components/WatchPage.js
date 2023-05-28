@@ -16,7 +16,7 @@ const WatchPage = () => {
   const dispatch = useDispatch();
   const videoId = videoFromId.get("v");
 
-  console.log(videoStats, channelDetails);
+  // console.log(videoStats, channelDetails);
 
   useEffect(() => {
     window.scrollTo(0, 0);

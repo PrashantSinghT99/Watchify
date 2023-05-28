@@ -4,7 +4,6 @@ import { VIDEO_SEARCH_API } from "../utils/constants";
 import { sideBarState } from "../utils/sideBarSlice";
 import { searchCached } from "../utils/searchCachingSlice";
 import { Link } from "react-router-dom";
-import filterData from '../hooks/useFilter'
 const Header = () => {
   const [searchVideo, setsearchVideo] = useState("");
   const [suggestions, setsuggestions] = useState([]);
