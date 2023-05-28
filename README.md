@@ -2,7 +2,9 @@
 
 Hosted Live: https://youtube-pst99.netlify.app/
 
-Version 1.2 coming soon.....
+Version 2 https://youtube-pst99-2.netlify.app/
+
+Version 3 coming soon.....
 
 Developed a Youtube app clone using the latest technologies.
 
