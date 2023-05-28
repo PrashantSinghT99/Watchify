@@ -15,7 +15,7 @@ const commentsSlice = createSlice({
             function replyRecursiveFunc(data) {
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].id === parentid) {
-                        data[i].replies.push(reply)
+                        data[i].replies.unshift(reply)
                     }
                     else if (data[i].replies.length > 0) {
                         replyRecursiveFunc(data[i].replies)

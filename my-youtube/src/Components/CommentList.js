@@ -3,7 +3,7 @@ import Comment from "./Comment.js";
 import image from "../Assests/comment-icon.png";
 import { useDispatch, useSelector } from "react-redux"
 import { addComment } from "../utils/commentsSlice.js";
-import { useRandomId } from '../utils/useRandomId.js'
+import { useRandomId } from '../hooks/useRandomId.js'
 const CommentList = () => {
 
   const [CommentBtnState, setCommentBtnState] = useState("");
@@ -32,7 +32,7 @@ const CommentList = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mt-2 ml-2">Comments : </h1>
+      <h1 className="text-xl font-bold mt-6 ml-2">Comments : </h1>
       <div className="flex flex-col mt-4">
         <div className="flex gap-2">
           <img src={image} alt="usericon" width="40px" />

@@ -3,8 +3,8 @@ import Chat from './Chat'
 import { useDispatch, useSelector } from 'react-redux'
 import { sendChat } from "../utils/liveChatSlice";
 import { generateRandomName } from '../utils/constants'
-import { randomMessageGenerator } from '../utils/constants'
-import { getRandomEmoji } from '../utils/constants'
+import { randomMessageGenerator } from '../hooks/useLiveMsgChats'
+import { getRandomEmoji } from '../hooks/useLiveMsgChats'
 import { AiOutlineSend } from 'react-icons/ai'
 const Livechats = () => {
   const [enteredChat, setEnteredChat] = useState("");

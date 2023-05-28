@@ -3,12 +3,13 @@ import image from "../Assests/comment-icon.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addReplyAction } from "../utils/commentsSlice";
-import { useRandomId } from "../utils/useRandomId.js";
+import { useRandomId } from "../hooks/useRandomId";
 import { deleteAction } from "../utils/commentsSlice";
 const Comment = ({ comment }) => {
   const [replyState, setReplyState] = useState(false);
   const [replyModeComment, setReplyModeComment] = useState("");
   const {control}=comment
+  const {id}=comment
   // const [control, setcontrol] = useState(comment.control);
 
   // console.log(control);
@@ -28,7 +29,7 @@ const Comment = ({ comment }) => {
     if (replyModeComment === "") return;
     dispatch(
       addReplyAction({
-        parentid: comment.id,
+        parentid: id,
         reply: {
           id: randomId,
           name: "Prashant Singh",
